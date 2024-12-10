@@ -11,6 +11,7 @@ const  PostSchema = Schema({
   status:{type:String, default:"active"},
   isDeleted:{type:Boolean, default:false},
   likes: { type: Number, default: 0 }, // 좋아요 수
+  pushcategory:{type:Array,},
   
   
   // 2types: customer, admin type, 일반 사용자는 customer 하나는 admin type

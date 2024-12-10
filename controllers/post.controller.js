@@ -15,6 +15,7 @@ postController.createPost = async (req, res) => {
       price,
       stock,
       status,
+      pushcategory
     } = req.body;
     const post = new Post({
       sku,
@@ -26,6 +27,7 @@ postController.createPost = async (req, res) => {
       price,
       stock,
       status,
+      pushcategory
     });
 
     await post.save();
@@ -85,11 +87,12 @@ postController.updatePost = async (req, res) => {
       category,
       stock,
       status,
+      pushcategory
     } = req.body;
 
     const post = await Post.findByIdAndUpdate(
       { _id: postId },
-      { sku, name, size, image, price, description, category, stock, status },
+      { sku, name, size, image, price, description, category, stock, status,pushcategory },
       { new: true } // 새로운 값 업데이트
     );
     if (!post) throw new Error('게시글이 존재하지 않습니다.');
